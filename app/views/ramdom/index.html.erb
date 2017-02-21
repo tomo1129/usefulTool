@@ -1,0 +1,22 @@
+<%# モデルの時は書き方違うよ form_forとかradio_buttonとか...%>
+<%= form_tag('/ramdom', method: 'get') do %>
+    <p>桁数</p>
+    <%# 配列の時はこういうのできるけど、ちょっとかっこ悪い。今回はハッシュでやった %>
+    <%# select_tag 'digits', @digits.map{|t| [t, t]} %>
+    <%= select_tag 'digits', options_for_select(@digit_options.to_a, :selected => @digit) %>
+
+    <p>使用文字列のタイプ</p>
+    <label><%= radio_button_tag 'type', ApplicationController::ALPHANUMERIC, (@type.blank? || @type == ApplicationController::ALPHANUMERIC) %>半角英数字</label>
+    <label><%= radio_button_tag 'type', ApplicationController::NUMERIC, (@type == ApplicationController::NUMERIC) %>半角数字</label>
+    <label><%= radio_button_tag 'type', ApplicationController::ALPHABET, (@type == ApplicationController::ALPHABET) %>半角英字</label>
+
+    <p>記号・大文字の使用</p>
+    <label><%= radio_button_tag 'contain_type', ApplicationController::NOTSYMBOLANDUPPER, (@contain_type.blank? || @contain_type == ApplicationController::NOTSYMBOLANDUPPER) %>記号・大文字共に含まない</label>
+    <label><%= radio_button_tag 'contain_type', ApplicationController::SYMBOLANDUPPER, (@contain_type.blank? || @contain_type == ApplicationController::SYMBOLANDUPPER) %>記号・大文字共に含む</label>
+    <label><%= radio_button_tag 'contain_type', ApplicationController::SYMBOLONLY, (@contain_type == ApplicationController::SYMBOLONLY) %>記号は含むが大文字は含まない</label>
+    <label><%= radio_button_tag 'contain_type', ApplicationController::UPPERONLY, (@contain_type == ApplicationController::UPPERONLY) %>大文字は含むが記号は含まない</label>
+
+    <%= submit_tag('パスワード発行！', name: nil) %>
+
+    <p><%= @password %></p>
+<% end %>
