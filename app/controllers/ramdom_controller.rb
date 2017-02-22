@@ -24,7 +24,7 @@ class RamdomController < ApplicationController
             symbol = '! # $ % & @ + * ?'.split(/\s+/)
             char = []
 
-            if @type.nil?
+            if @type.empty?
                 char.push(numeric, lower_alphabet, upper_alphabet, symbol)
             else
                 if @type.include?(NUMERIC)
@@ -46,7 +46,7 @@ class RamdomController < ApplicationController
                 @password = (0...digits).map { o[rand(o.length)] }.join
                 loop_count += 0
 
-                if @type.nil?
+                if @type.empty?
                     break
                 else
                     if @type.include?(NUMERIC)
