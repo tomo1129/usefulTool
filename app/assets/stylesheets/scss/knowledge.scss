@@ -1,0 +1,110 @@
+// Place all the styles related to the knowledge controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "color";
+@import "mixins";
+html {
+	background: image-url('background.jpg');
+	font-family: Raleway, Verdana, Arial, sans-serif;
+	body {
+		width: 90%;
+		margin: 50px auto;
+		background: $white;
+	}
+}
+.main {
+	width: 100%;
+	display: block;
+	background: $white;
+	overflow: hidden;
+	& > * {
+		float: left;
+		@include max-screen(map-get($breakpoints-down, pc-2)) {
+			float: none;
+		}
+	}
+	& > article {
+		width: calc(100% - 330px);
+		@include max-screen(map-get($breakpoints-down, pc-2)) {
+			width: 100%;
+		}
+		section {
+			padding: 20px;
+			h2 {
+				color: $black;
+				border-bottom: 1px solid $black;
+				display: inline;
+				padding-bottom: 3px;
+				font-size: 1.2em;
+				&:not(:first-child):before {
+					content: '\003E';
+					color: $black;
+					margin: 0 10px;
+				}
+			}
+			h1 {
+				color: $darkslateblue;
+				font-size: 1.3em;
+				margin: 35px 0 30px;
+				font-weight: bold;
+				line-height: 1.5em;
+			}
+			.sentence_section {
+				margin: 10px 0;
+				line-height: 1.5em;
+				pre {
+					code {
+						//margin-bottom: -48px;
+						}
+				}
+			}
+		}
+	}
+	& > aside {
+		width: 330px;
+		section {
+			padding: 20px;
+			border-left: 1px solid $gray;
+			margin: 20px 0;
+			form {
+				input[type=text] {
+					line-height: 25px;
+					border: 1px solid $gray;
+					width: 60%;
+					font-size: 1.0em;
+					padding: 0 5px;
+					float: left;
+				}
+				input[type=submit] {
+					line-height: 25px;
+					width: 35%;
+					font-size: 1.0em;
+					padding: 0 5px;
+					background: $blue;
+					border: 1px solid $cadetblue;
+					color: $white;
+					&:after {
+						clear: left;
+					}
+				}
+			}
+			& > ul {
+				margin-top: 30px;
+				li {
+					margin-bottom: 10px;
+					&:not(.list):before {
+						content: '\0025B6';
+						color: $black;
+						margin-right: 5px;
+					}
+					a {
+						color: $black;
+					}
+					& > ul {
+						padding-left: 20px;
+					}
+				}
+			}
+		}
+	}
+}

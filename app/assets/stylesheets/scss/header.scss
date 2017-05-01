@@ -1,0 +1,47 @@
+// Place all the styles related to the knowledge controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "color";
+@import "mixins";
+header {
+	.logo_box {
+		color: $black;
+		padding: 30px 20px;
+		font-size: 2em;
+		font-weight: bold;
+		h2 {
+			line-height: 1.4em;
+		}
+	}
+	nav {
+		ul {
+			li {
+				float: left;
+				width: 25%;
+				background: $blue;
+				border-bottom: 5px solid $green;
+				box-sizing: border-box;
+				line-height: 45px;
+				&:not(:last-child) {
+					border-right: 1px solid $white;
+				}
+				&:hover, &.active {
+					background: $cadetblue;
+				}
+				@include max-screen(map-get($breakpoints-down, tb)) {
+					width: 50%;
+				}
+				a {
+					color: $white;
+					font-size: 1.1em;
+					letter-spacing: 0.05em;
+					display: block;
+					padding-left: 20px;
+				}
+			}
+			&:after {
+				clear: left;
+			}
+		}
+	}
+}

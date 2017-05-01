@@ -1,0 +1,68 @@
+<%= render 'shared/header' %>
+<div class="main">
+	<article>
+		<section>
+			<h2>Programming</h2><h2>Java</h2>
+			<h1>SpringBootでDB接続</h1>
+			<div class="sentence_section">
+				<div>最新ニュース(About Latest News)とか最新ニュース(About Latest News)とか最新ニュース(About Latest News)とか最新ニュース(About Latest News)とか</div>
+			</div>
+			<div class="sentence_section">
+				<div>最新ニュース(About Latest News)とか最新ニュース(About Latest News)とか最新ニュース(About Latest News)とか最新ニュース(About Latest News)とか</div>
+			</div>
+			<div class="sentence_section">
+				<pre><code>package テストパッケージ;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+@Configuration
+public class MessageConfig extends WebMvcConfigurerAdapter {
+
+@Bean
+ReloadableResourceBundleMessageSource messageSource() {
+ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+// ここから先でどこのファイルを読めばよいのか指定してます。
+// MessageSource → メッセージの読み込み元ですからね
+messageSource.setBasenames("classpath:i18n/messages");
+messageSource.setCacheSeconds(0);
+messageSource.setDefaultEncoding("UTF-8");
+// ここまで
+return messageSource;
+}
+}</code></pre>
+			</div>
+			<div class="sentence_section">
+				<pre><code>package テストパッケージ;
+
+					import org.springframework.context.annotation.Bean;
+					import org.springframework.context.annotation.Configuration;
+					import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+					import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+					@Configuration
+					public class MessageConfig extends WebMvcConfigurerAdapter {
+
+					@Bean
+					ReloadableResourceBundleMessageSource messageSource() {
+					ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+					// ここから先でどこのファイルを読めばよいのか指定してます。
+					// MessageSource → メッセージの読み込み元ですからね
+					messageSource.setBasenames("classpath:i18n/messages");
+					messageSource.setCacheSeconds(0);
+					messageSource.setDefaultEncoding("UTF-8");
+					// ここまで
+					return messageSource;
+					}
+					}</code></pre></div>
+		</section>
+		<!--最新ニュース(About Latest News)とか-->
+		<!--特集とか-->
+		<!--便利ツールとか-->
+		<!--閲覧ランキング-->
+	</article>
+	<%= render 'shared/sidebar' %>
+</div>
+<%= render 'shared/footer' %>

@@ -1,0 +1,76 @@
+$breakpoints-up: (
+		pc-1: 1201px,
+		pc-2: 1121px,
+		pc-3: 981px,
+		pc-4: 901px,
+		tb: 769px,
+		sp-1: 661px,
+		sp-2: 561px,
+		sp-3: 481px,
+		sp-4: 421px,
+		sp-5: 401px
+) !default;
+
+$breakpoints-down: (
+		pc-1: 1200px,
+		pc-2: 1120px,
+		pc-3: 980px,
+		pc-4: 901px,
+		tb: 768px,
+		sp-1: 660px,
+		sp-2: 560px,
+		sp-3: 480px,
+		sp-4: 420px,
+		sp-5: 400px
+) !default;
+
+@mixin max-screen($break-point) {
+	@media screen and (max-width: $break-point) {
+		@content;
+	}
+}
+
+@mixin min-screen($break-point) {
+	@media screen and (min-width: $break-point) {
+		@content;
+	}
+}
+
+@mixin screen($break-point-min, $break-point-max) {
+	@media screen and (min-width: $break-point-min) and (max-width: $break-point-max) {
+		@content;
+	}
+}
+
+@mixin background-image($file,$repeat: no-repeat, $vertical:center, $horizon:center, $margin:null) {
+	background: url('../../images/' + $file) $repeat $vertical $horizon;
+	@if $margin {
+		margin: $margin;
+	};
+}
+
+@mixin background-image-before($file,$width, $height, $display:inline-block, $margin:null) {
+	&:before {
+		background: url('../../images/' + $file) no-repeat center center;
+		content: '';
+		width: $width;
+		height: $height;
+		display: $display;
+		@if $margin {
+			margin: $margin;
+		};
+	}
+}
+
+@mixin background-image-after($file,$width, $height, $display:inline-block, $margin:null) {
+	&:after {
+		background: url('../../images/' + $file) no-repeat center center;
+		content: '';
+		width: $width;
+		height: $height;
+		display: $display;
+		@if $margin {
+			margin: $margin;
+		};
+	}
+}
