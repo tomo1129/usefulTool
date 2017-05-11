@@ -58,6 +58,83 @@ html {
 						}
 				}
 			}
+			&.recent_posts {
+				ul {
+					margin-top: 25px;
+					padding-left: 40px;
+					li {
+						font-size: 1.1em;
+						text-indent: -1.3em;
+						&:not(:last-child) {
+							margin-bottom: 20px;
+						}
+						&:before {
+							content: '\0025B6';
+							color: $black;
+							margin-right: 5px;
+						}
+						&:hover {
+							opacity: 0.7;
+						}
+						a {
+							color: $black;
+						}
+					}
+				}
+			}
+			ul.articles {
+				margin-top: 20px;
+				padding-left: 40px;
+				li {
+					font-size: 1.1em;
+					text-indent: -1.3em;
+					&:not(:last-child) {
+						margin-bottom: 20px;
+					}
+					&:before {
+						content: '\0025B6';
+						color: $black;
+						margin-right: 5px;
+					}
+					&:hover {
+						opacity: 0.7;
+					}
+					a {
+						color: $black;
+					}
+				}
+			}
+			.article_count {
+				color: #40514E;
+				text-align: center;
+				margin-top: 20px;
+			}
+			ul.middle_categories, ul.small_categories {
+				margin-top: 20px;
+				li {
+					display: inline-block;
+					width: 150px;
+					height: 50px;
+					background: $black;
+					&:hover {
+						opacity: 0.7;
+					}
+					a {
+						display: block;
+						text-align: center;
+						line-height: 50px;
+						font-size: 1.2em;
+						color: $white;
+					}
+				}
+			}
+			.relate_title {
+				color: $black;
+				border-bottom: 1px solid $black;
+				display: inline;
+				font-size: 1.2em;
+				padding-bottom: 3px;
+			}
 		}
 	}
 	& > aside {
@@ -86,12 +163,16 @@ html {
 					&:after {
 						clear: left;
 					}
+					&:hover {
+						opacity: 0.7;
+						cursor: pointer;
+					}
 				}
 			}
 			& > ul {
 				margin-top: 30px;
 				li {
-					margin-bottom: 10px;
+					margin-bottom: 15px;
 					&:not(.list):before {
 						content: '\0025B6';
 						color: $black;
@@ -99,6 +180,9 @@ html {
 					}
 					a {
 						color: $black;
+					}
+					&:hover {
+						opacity: 0.7;
 					}
 					& > ul {
 						padding-left: 20px;

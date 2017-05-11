@@ -1,21 +1,25 @@
 <aside>
 	<section>
-		<%= form_tag('/search', method: 'get') do %>
-			<%= text_field :search, :name %>
-			<%= submit_tag('Search', {name: nil, class: 'search_input'}) %>
-		<% end %>
+		<%#= form_tag('/search', method: 'get') do %>
+			<%#= text_field :search, :name %>
+			<%#= submit_tag('Search', {name: nil, class: 'search_input'}) %>
+		<%# end %>
 
 		<ul>
-			<li><a href="/programming?type=1">Java</a></li>
-			<li class="list">
-				<ul>
-					<li><a href="/programming?type=2">Spring Boot</a></li>
-					<li><a href="/programming?type=2">JavaEE</a></li>
-				</ul>
-			</li>
-			<li><a href="/programming?type=2">C</a></li>
-			<li><a href="/programming?type=3">Python</a></li>
-			<li><a href="/programming?type=4">Linux</a></li>
+			<% @allMiddleCategories = MiddleCategory.all.order("category_id asc, id asc") %>
+			<% @allMiddleCategories.each do |middle| %>
+				<li><a href="/knowledge?middle_category=<%= middle.name %>"><%= middle.name %></a></li>
+				<% @smallCategoryLists = SmallCategory.where(:middle_category => middle) %>
+				<% if @smallCategoryLists %>
+				<li class="list">
+					<ul>
+						<% @smallCategoryLists.each do |small| %>
+							<li><a href="/knowledge?small_category=<%= small.name %>"><%= small.name %></a></li>
+						<% end %>
+					</ul>
+				</li>
+				<% end %>
+			<% end %>
 		</ul>
 
 		<!--最新記事とランキングもそのうち載せる-->
@@ -27,7 +31,7 @@
 			 data-ad-client="ca-pub-7732606557161974"
 			 data-ad-slot="9471427244"></ins>
 		<script>
-			(adsbygoogle = window.adsbygoogle || []).push({});
+//			(adsbygoogle = window.adsbygoogle || []).push({});
 		</script>
 	</section>
 </aside>

@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   # resourcesがあればhttp://akkunchoi.github.io/rails3-routes.htmlにあるようなルートができる
   resources :ramdom
   resources :knowledge
+  resources :admin
 end

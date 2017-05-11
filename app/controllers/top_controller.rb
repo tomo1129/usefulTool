@@ -1,4 +1,5 @@
 class TopController < ApplicationController
-  def index
-  end
+	def index
+		@recentPosts = Article.all.order("id desc").limit(10)
+	end
 end

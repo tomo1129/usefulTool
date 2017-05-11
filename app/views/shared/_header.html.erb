@@ -3,8 +3,19 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Engineer Knowledge Note</title>
-	<meta name="description" content="システムエンジニアの管理人が調べたことや詰まったことを備忘として掲載しています。便利ツールも開発しているので、ぜひお試しください。" />
+	<% if @metaTitle %>
+		<title><%= @metaTitle %> | Engineer Knowledge Note</title>
+	<% else %>
+		<title>Engineer Knowledge Note</title>
+	<% end %>
+
+	<% if @article %>
+		<meta name="description" content="<%= @article.description %>" />
+		<meta name="keywords" content="<%= @article.keywords %>" />
+	<% else %>
+		<meta name="description" content="システムエンジニアの管理人が調べたことや詰まったことを備忘として掲載しています。便利ツールも開発しているので、ぜひお試しください。" />
+		<meta name="keywords" content="Programming,Infrastructure,Markup,usefulTool,Javascript" />
+	<% end %>
 	<script>hljs.initHighlightingOnLoad();</script>
 
 	<!-- favicon 後回し -->
@@ -32,14 +43,16 @@
 <body>
 <header>
 	<div class="logo_box">
-		<h2>Engineer Knowledge Note</h2>
+		<a href="/"><h2>Engineer Knowledge Note</h2></a>
 	</div>
 	<nav>
 		<ul>
-			<li><a href="/programming">Programming</a></li>
-			<li><a href="/infrastructure">Infrastructure</a></li>
-			<li><a href="/markup">Markup</a></li>
-			<li><a href="/javascript">Javascript</a></li>
+			<li class="<%= 'active' if @category and @category.id == 1 %>"><a href="/knowledge?category=Programming">Programming</a></li>
+			<li class="<%= 'active' if @category and @category.id == 2 %>"><a href="/knowledge?category=Infrastructure">Infrastructure</a></li>
+			<li class="<%= 'active' if @category and @category.id == 3 %>"><a href="/knowledge?category=Markup">Markup</a></li>
+			<li class="<%= 'active' if @category and @category.id == 4 %>"><a href="/knowledge?category=Javascript">Javascript</a></li>
+			<li class="<%= 'active' if @category and @category.id == 5 %>"><a href="/knowledge?category=News">News</a></li>
+			<li class="<%= 'active' if @toolPage %>"><a href="/ramdom">Tool</a></li>
 		</ul>
 	</nav>
 </header>

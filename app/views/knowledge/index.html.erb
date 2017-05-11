@@ -2,8 +2,35 @@
 <div class="main">
 	<article>
 		<section>
-			<h2>Programming</h2><span></span><h2>Java</h2>
-			<h1>SpringBootでDB接続</h1>
+			<% if @paramCategory %>
+				<h2><%= @paramCategory.name %></h2>
+			<% elsif @paramMiddleCategory %>
+				<h2><%= @paramMiddleCategory.category.name %></h2><h2><%= @paramMiddleCategory.name %></h2>
+			<% elsif @paramSmallCategory %>
+				<h2><%= @paramSmallCategory.middle_category.category.name %></h2><h2><%= @paramSmallCategory.middle_category.name %></h2><h2><%= @paramSmallCategory.name %></h2>
+			<% end %>
+			<% if @paramCategory %>
+				<ul class="middle_categories">
+					<% @middleCategoriesByParam.each do |middle| %>
+						<li><a href="/knowledge?middle_category=<%= middle.name %>"><%= middle.name %></a></li>
+					<% end %>
+				</ul>
+			<% end %>
+			<% if @paramMiddleCategory %>
+				<ul class="small_categories">
+					<% @smallCategoriesByParam.each do |small| %>
+						<li><a href="/knowledge?small_category=<%= small.name %>"><%= small.name %></a></li>
+					<% end %>
+				</ul>
+			<% end %>
+			<% if @articlesByParam %>
+				<p class="article_count"><%= @articleCount %>&nbsp;件</p>
+				<ul class="articles">
+					<% @articlesByParam.each do |article| %>
+						<li><a href="/knowledge/<%= article.id %>"><%= article.title %></a></li>
+					<% end %>
+				</ul>
+			<% end %>
 		</section>
 		<!--最新ニュース(About Latest News)とか-->
 		<!--特集とか-->

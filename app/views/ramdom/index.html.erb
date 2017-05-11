@@ -1,59 +1,43 @@
 <%= render 'shared/header' %>
 <%# モデルの時は書き方違うよ form_forとかradio_buttonとか...%>
-<div class="mh-wrapper clearfix">
-  <div id="main-content" class="mh-content" role="main" itemprop="mainContentOfPage">
-    <article class="post type-post status-publish format-standard hentry category-react_practice">
-      <header class="entry-header clearfix">
-        <h1 class="entry-title">パスワードを自動生成！</h1>
-      </header>
-      <div class="entry-content clearfix">
-        <p>入力する文字タイプを選択してパスワードを発行してください。</p>
-      </div>
+<div class="main">
+	<article>
+		<section>
+			<h1>パスワードの自動生成！</h1>
+			<p>入力する文字タイプを選択してパスワードを発行してください。</p>
 
-      <%= form_tag('/ramdom', method: 'get') do %>
-          <p class="bold">桁数</p>
-          <%# 配列の時はこういうのできるけど、ちょっとかっこ悪い。今回はハッシュでやった %>
-          <%# select_tag 'digits', @digits.map{|t| [t, t]} %>
-          <%= select_tag 'digits', options_for_select(@digit_options.to_a, :selected => @digits), {class: 'digits'} %>
+			<%= form_tag('/ramdom', method: 'get') do %>
+				<p class="bold margin-top">桁数</p>
+				<%# 配列の時はこういうのできるけど、ちょっとかっこ悪い。今回はハッシュでやった %>
+				<%# select_tag 'digits', @digits.map{|t| [t, t]} %>
+				<%= select_tag 'digits', options_for_select(@digit_options.to_a, :selected => @digits), {class: 'digits'} %>
 
-          <p class="bold">パスワードに含むタイプを選択してください。</p>
-          <label><%= check_box_tag 'type[]', ApplicationController::NUMERIC, (@type.include?(ApplicationController::NUMERIC)) %>数字</label>
-          <label><%= check_box_tag 'type[]', ApplicationController::LOWER_ALPHABET, (@type.include?(ApplicationController::LOWER_ALPHABET)) %>英小文字</label>
-          <label><%= check_box_tag 'type[]', ApplicationController::UPPER_ALPHABET, (@type.include?(ApplicationController::UPPER_ALPHABET)) %>英大文字</label>
-          <label><%= check_box_tag 'type[]', ApplicationController::SYMBOL, (@type.include?(ApplicationController::SYMBOL)) %>記号</label>
+				<p class="bold margin-top">パスワードに含むタイプを選択してください。</p>
+				<label><%= check_box_tag 'type[]', ApplicationController::NUMERIC, (@type.include?(ApplicationController::NUMERIC)) %>数字</label>
+				<label><%= check_box_tag 'type[]', ApplicationController::LOWER_ALPHABET, (@type.include?(ApplicationController::LOWER_ALPHABET)) %>英小文字</label>
+				<label><%= check_box_tag 'type[]', ApplicationController::UPPER_ALPHABET, (@type.include?(ApplicationController::UPPER_ALPHABET)) %>英大文字</label>
+				<label><%= check_box_tag 'type[]', ApplicationController::SYMBOL, (@type.include?(ApplicationController::SYMBOL)) %>記号</label>
 
-          <!--以下、なぜかラジオボタンでやろうとした失敗作-->
-          <!--<p>使用文字列のタイプ</p>-->
-          <!--<label><%# radio_button_tag 'type', ApplicationController::ALPHANUMERIC, (@type.blank? || @type == ApplicationController::ALPHANUMERIC) %>半角英数字</label>-->
-          <!--<label><%# radio_button_tag 'type', ApplicationController::NUMERIC, (@type == ApplicationController::NUMERIC) %>半角数字</label>-->
-          <!--<label><%# radio_button_tag 'type', ApplicationController::ALPHABET, (@type == ApplicationController::ALPHABET) %>半角英字</label>-->
+				<!--以下、なぜかラジオボタンでやろうとした失敗作-->
+				<!--<p>使用文字列のタイプ</p>-->
+				<!--<label><%# radio_button_tag 'type', ApplicationController::ALPHANUMERIC, (@type.blank? || @type == ApplicationController::ALPHANUMERIC) %>半角英数字</label>-->
+				<!--<label><%# radio_button_tag 'type', ApplicationController::NUMERIC, (@type == ApplicationController::NUMERIC) %>半角数字</label>-->
+				<!--<label><%# radio_button_tag 'type', ApplicationController::ALPHABET, (@type == ApplicationController::ALPHABET) %>半角英字</label>-->
 
-          <!--<p>記号・大文字の使用</p>-->
-          <!--<label><%# radio_button_tag 'contain_type', ApplicationController::NOTSYMBOLANDUPPER, (@contain_type.blank? || @contain_type == ApplicationController::NOTSYMBOLANDUPPER) %>記号・大文字共に含まない</label>-->
-          <!--<label><%# radio_button_tag 'contain_type', ApplicationController::SYMBOLANDUPPER, (@contain_type.blank? || @contain_type == ApplicationController::SYMBOLANDUPPER) %>記号・大文字共に含む</label>-->
-          <!--<label><%# radio_button_tag 'contain_type', ApplicationController::SYMBOLONLY, (@contain_type == ApplicationController::SYMBOLONLY) %>記号は含むが大文字は含まない</label>-->
-          <!--<label><%# radio_button_tag 'contain_type', ApplicationController::UPPERONLY, (@contain_type == ApplicationController::UPPERONLY) %>大文字は含むが記号は含まない</label>-->
+				<!--<p>記号・大文字の使用</p>-->
+				<!--<label><%# radio_button_tag 'contain_type', ApplicationController::NOTSYMBOLANDUPPER, (@contain_type.blank? || @contain_type == ApplicationController::NOTSYMBOLANDUPPER) %>記号・大文字共に含まない</label>-->
+				<!--<label><%# radio_button_tag 'contain_type', ApplicationController::SYMBOLANDUPPER, (@contain_type.blank? || @contain_type == ApplicationController::SYMBOLANDUPPER) %>記号・大文字共に含む</label>-->
+				<!--<label><%# radio_button_tag 'contain_type', ApplicationController::SYMBOLONLY, (@contain_type == ApplicationController::SYMBOLONLY) %>記号は含むが大文字は含まない</label>-->
+				<!--<label><%# radio_button_tag 'contain_type', ApplicationController::UPPERONLY, (@contain_type == ApplicationController::UPPERONLY) %>大文字は含むが記号は含まない</label>-->
 
-          <%= submit_tag('パスワード発行！', {name: nil, class: 'password_input'}) %>
-          <% if @password %>
-              <div class="password_result"><span><%= @password %></span></div>
-          <% end %>
-      <% end %>
-    <div class="single_footer_adsense">
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <!-- adsense -->
-      <ins class="adsbygoogle"
-           style="display:block;background: #fff;padding-bottom: 20px;"
-           data-ad-client="ca-pub-7732606557161974"
-           data-ad-slot="1848440441"
-           data-ad-format="auto"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
+				<%= submit_tag('パスワード発行！', {name: nil, class: 'password_input'}) %>
+				<% if @password %>
+					<div class="password_result"><span><%= @password %></span></div>
+				<% end %>
+			<% end %>
 
-    </article>
-  </div>
+		</section>
+	</article>
   <%= render 'shared/sidebar' %>
 </div>
 <%# TODO JS使って、半角数字のときは大文字関連隠すようにする%>

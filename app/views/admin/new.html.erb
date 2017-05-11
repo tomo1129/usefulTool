@@ -1,0 +1,73 @@
+<%= form_tag('/admin', method: 'post') do %>
+	<p>タイトル</p>
+	<%= text_field :article, :title %>
+	<p>description</p>
+	<%= text_field :article, :description %>
+	<p>keywords</p>
+	<%= text_field :article, :keywords %>
+
+	<p>カテゴリー</p>
+	<%= select :article, :small_category, @categorySelect %>
+
+	<p>公開</p>
+	<label><%= radio_button :article, :public, KnowledgeController::DRAFT, {:checked => (@type == KnowledgeController::DRAFT)} %>下書き</label>
+	<label><%= radio_button :article, :public, KnowledgeController::PUBLIC, {:checked => (@type == KnowledgeController::PUBLIC)} %>公開</label>
+
+	<div class="section" data-id="0">
+		<label><%= radio_button 'article[type]', 0, KnowledgeController::TEXT, {:checked => (@type.blank? || @type == KnowledgeController::TEXT)} %>テキスト</label>
+		<label><%= radio_button 'article[type]', 0, KnowledgeController::CODE, {:checked => (@type == KnowledgeController::CODE)} %>コード</label>
+		<%= text_area 'article[sentence]', 0 %>
+	</div>
+	<a href="javascript:void(0)" class="jsAdd">追加</a>
+
+	<%= submit_tag('保存', {name: nil}) %>
+<% end %>
+<style>
+	form {
+		padding: 40px;
+	}
+	.section {
+		margin-top: 25px;
+	}
+	#article_title, #article_description, #article_keywords {
+		height: 20px;
+		margin-bottom: 20px;
+		width: 100%;
+	}
+	textarea {
+		display: block;
+		height: 200px;
+		width: 100%;
+	}
+	input[type=submit] {
+		margin-top: 20px;
+	}
+	select {
+		margin-bottom: 20px;
+	}
+</style>
+<script>
+	$(document).ready(function(){
+		var max_id = getMaxId();
+		$('.jsAdd').click(function() {
+			var next_id = max_id + 1;
+			var section = '<div class="section" data-id="' + next_id + '">' +
+				'<label><input type="radio" value="1" checked="checked" name="article[type][' + next_id + ']" id="article_type_' + next_id + '_1">テキスト</label>' +
+				'<label><input type="radio" value="2" name="article[type][' + next_id + ']" id="article_type_' + next_id + '_2">コード</label>' +
+				'<textarea name="article[sentence][' + next_id + ']" id="article_sentence_' + next_id + '"></textarea>' +
+				'</div>';
+			$(section).insertBefore('.jsAdd');
+			max_id = getMaxId();
+		});
+
+		function getMaxId() {
+			var id = 0;
+			$('.section').each(function() {
+				if(parseInt($(this).attr('data-id')) > id) {
+					id = parseInt($(this).attr('data-id'));
+				}
+			});
+			return id;
+		}
+	})
+</script>

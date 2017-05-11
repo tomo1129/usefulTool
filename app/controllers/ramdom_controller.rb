@@ -1,6 +1,7 @@
 class RamdomController < ApplicationController
     def index
         # logger.debug(params[:practice1][:type])
+        @toolPage = true
         if params[:digits].present?
             @digits = params[:digits]
         end

@@ -1,0 +1,3 @@
+<% @articles.each do |article| %>
+	<div><a href="/admin/<%= article.id %>/edit"><%= article.title %></a></div>
+<% end %>

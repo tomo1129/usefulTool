@@ -1,8 +1,15 @@
 <%= render 'shared/header' %>
 <div class="main">
 	<article>
-		<section>
-			<h2>Recent Posts</h2>
+		<section class="recent_posts">
+			<h2>最新投稿</h2>
+			<% if @recentPosts %>
+				<ul>
+				<% @recentPosts.each do |post| %>
+					<li><a href="/knowledge/<%= post.id %>"><%= post.title %></a></li>
+				<% end %>
+				</ul>
+			<% end %>
 		</section>
 		<!--最新ニュース(About Latest News)とか-->
 		<!--特集とか-->
