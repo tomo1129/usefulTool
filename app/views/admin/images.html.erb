@@ -1,0 +1,7 @@
+<%= form_for :image, :url => {:action => 'upload'} do |f| %>
+	<%= f.file_field :image %>
+	<%= submit_tag('保存', {name: nil}) %>
+	<% @images.each do |image| %>
+		<%= image_tag image.src %>
+	<% end %>
+<% end %>

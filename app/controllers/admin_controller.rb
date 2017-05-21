@@ -64,6 +64,28 @@ class AdminController < ApplicationController
 		redirect_to controller: 'admin', action: 'edit', id: article.id
 	end
 
+	def images
+		@images = Image.all
+	end
+
+	def upload
+		file = params[:image]
+		name = file[:image].original_filename
+
+		# File.open("public/uploads/#{name}", 'wb') { |f|
+		# 	f.write(file[:image].read)
+		# }
+		@image = Image.new
+		@image.update(image_params)
+		@image.src = @image.image.url
+		@image.save()
+		# image.title = name
+		# image.image = name
+		# image.src = '/uploads/'
+		# image.save
+		redirect_to controller: 'admin', action: 'images'
+	end
+
 	def getCategorySelect
 		@smallCategories = SmallCategory.all
 		@categorySelect = {}
@@ -73,4 +95,9 @@ class AdminController < ApplicationController
 
 		return @categorySelect
 	end
+	private
+	def image_params
+		params.require(:image).permit(:date, :image, :image_cache, :remove_image)
+	end
+
 end
