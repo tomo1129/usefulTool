@@ -38,4 +38,4 @@ production:
   pool: 5
   username: <%= ENV["USER_NAME"] %>
   password: <%= ENV["PASSWORD"] %>
-  socket: /tmp/mysql.sock
+  socket: /var/lib/mysql/mysql.sock
