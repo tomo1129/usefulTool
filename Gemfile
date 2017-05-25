@@ -56,3 +56,4 @@ gem 'mysql2'
 gem 'carrierwave'
 gem 'rmagick'
 # インストール失敗時はhttp://stackoverflow.com/questions/42250292/rails-cant-install-rmagick-2-16-0-cant-find-magickwand-hで解決した
+gem 'dotenv-rails'
