@@ -56,9 +56,9 @@
 		$('.jsAdd').click(function() {
 			var next_id = max_id + 1;
 			var section = '<div class="section" data-id="' + next_id + '">' +
-				'<label><input type="radio" value="1" checked="checked" name="type[' + next_id + ']" id="type_' + next_id + '_1">テキスト</label>' +
-				'<label><input type="radio" value="2" name="type[' + next_id + ']" id="type_' + next_id + '_2">コード</label>' +
-				'<textarea name="page[' + next_id + ']" id="page_' + next_id + '"></textarea>' +
+				'<label><input type="radio" value="1" checked="checked" name="article[type][' + next_id + ']" id="article_type_' + next_id + '_1">テキスト</label>' +
+				'<label><input type="radio" value="2" name="article[type][' + next_id + ']" id="article_type_' + next_id + '_2">コード</label>' +
+				'<textarea name="article[sentence][' + next_id + ']" id="article_sentence_' + next_id + '"></textarea>' +
 				'</div>';
 			$(section).insertBefore('.jsAdd');
 			max_id = getMaxId();

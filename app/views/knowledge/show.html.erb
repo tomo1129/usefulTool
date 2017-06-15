@@ -7,7 +7,7 @@
 			<% @parse.each do |parse| %>
 				<div class="sentence_section">
 				<% if parse['type'] == KnowledgeController::TEXT %>
-					<div><%= parse['sentence'] %></div>
+					<div><%= parse['sentence'].html_safe %></div>
 				<% elsif parse['type'] == KnowledgeController::CODE %>
 					<pre><code><%= parse['sentence'] %></code></pre>
 				<% end %>
