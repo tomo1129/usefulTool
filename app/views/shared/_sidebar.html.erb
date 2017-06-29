@@ -24,7 +24,7 @@
 
 		<!--最新記事とランキングもそのうち載せる-->
 
-		<% if ENV['SERVER_NAME'] == 'ti-tomo-knowledge.net' %>
+		<% if Rails.env == 'production' %>
 			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 			<!-- adsense2 -->
 			<ins class="adsbygoogle"
