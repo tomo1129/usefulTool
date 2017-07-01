@@ -5,6 +5,18 @@
 			<%#= submit_tag('Search', {name: nil, class: 'search_input'}) %>
 		<%# end %>
 
+		<% if Rails.env == 'production' %>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- adsense3 -->
+			<ins class="adsbygoogle"
+				 style="display:inline-block;width:336px;height:280px"
+				 data-ad-client="ca-pub-7732606557161974"
+				 data-ad-slot="6509000448"></ins>
+			<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		<% end %>
+
 		<ul>
 			<% @allMiddleCategories = MiddleCategory.all.order("category_id asc, id asc") %>
 			<% @allMiddleCategories.each do |middle| %>
