@@ -52,10 +52,11 @@ html {
 			.sentence_section {
 				margin: 10px 0;
 				line-height: 1.5em;
+				overflow-x: scroll;
 				pre {
 					white-space: pre-wrap;
 					code {
-						//margin-bottom: -48px;
+						width: 1000px;
 						}
 					img {
 						max-width: 100%;
@@ -118,7 +119,7 @@ html {
 				margin-top: 20px;
 				li {
 					display: inline-block;
-					width: 155px;
+					width: 145px;
 					height: 40px;
 					background: $black;
 					margin: 5px 0;
@@ -129,7 +130,7 @@ html {
 						display: block;
 						text-align: center;
 						line-height: 40px;
-						font-size: 1.0em;
+						font-size: 0.9em;
 						color: $white;
 					}
 				}
@@ -186,9 +187,9 @@ html {
 					}
 					a {
 						color: $black;
-					}
-					&:hover {
-						opacity: 0.7;
+						&:hover {
+							opacity: 0.7;
+						}
 					}
 					& > ul {
 						padding-left: 20px;
