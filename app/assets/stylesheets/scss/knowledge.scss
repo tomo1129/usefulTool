@@ -25,6 +25,7 @@ html {
 	}
 	& > article {
 		width: calc(100% - 330px);
+		margin-bottom: 20px;
 		@include max-screen(map-get($breakpoints-down, pc-2)) {
 			width: 100%;
 		}
