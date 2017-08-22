@@ -4,6 +4,7 @@
 		<section>
 			<h2><%= @category.name %></h2><h2><%= @middle_category.name %></h2><h2><%= @small_category.name %></h2>
 			<h1><%= @article.title %></h1>
+			<p class="date"><span><%= @article.created_at.strftime('%Y.%m.%d') %></span></p>
 			<% @parse.each do |parse| %>
 				<div class="sentence_section">
 				<% if parse['type'] == KnowledgeController::TEXT %>

@@ -45,9 +45,20 @@ html {
 			h1 {
 				color: $darkslateblue;
 				font-size: 1.3em;
-				margin: 35px 0 30px;
+				margin: 35px 0 10px;
 				font-weight: bold;
 				line-height: 1.5em;
+			}
+			.date {
+				text-align: right;
+				margin-bottom: 20px;
+
+				span {
+					color: $black;
+					margin-bottom: 20px;
+					font-size: 1.1em;
+					border-bottom: 1px solid $black;
+				}
 			}
 			.sentence_section {
 				margin: 10px 0;
