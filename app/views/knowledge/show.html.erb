@@ -12,6 +12,20 @@
 					<pre><code><%= parse['sentence'] %></code></pre>
 				<% elsif parse['type'] == KnowledgeController::JAVA %>
 					<pre><code class="java"><%= parse['sentence'] %></code></pre>
+				<% elsif parse['type'] == KnowledgeController::PHP %>
+					<pre><code class="php"><%= parse['sentence'] %></code></pre>
+				<% elsif parse['type'] == KnowledgeController::PYTHON %>
+					<pre><code class="python"><%= parse['sentence'] %></code></pre>
+				<% elsif parse['type'] == KnowledgeController::RUBY %>
+					<pre><code class="ruby"><%= parse['sentence'] %></code></pre>
+				<% elsif parse['type'] == KnowledgeController::HTML %>
+					<pre><code class="html"><%= parse['sentence'] %></code></pre>
+				<% elsif parse['type'] == KnowledgeController::CSS %>
+					<pre><code class="css"><%= parse['sentence'] %></code></pre>
+				<% elsif parse['type'] == KnowledgeController::JAVASCRIPT %>
+					<pre><code class="javascript"><%= parse['sentence'] %></code></pre>
+				<% elsif parse['type'] == KnowledgeController::LINUX %>
+					<pre><code class="linux"><%= parse['sentence'] %></code></pre>
 				<% end %>
 				</div>
 			<% end %>
