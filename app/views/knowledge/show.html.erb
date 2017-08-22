@@ -10,6 +10,8 @@
 					<pre><%= parse['sentence'].html_safe %></pre>
 				<% elsif parse['type'] == KnowledgeController::CODE %>
 					<pre><code><%= parse['sentence'] %></code></pre>
+				<% elsif parse['type'] == KnowledgeController::JAVA %>
+					<pre><code class="java"><%= parse['sentence'] %></code></pre>
 				<% end %>
 				</div>
 			<% end %>

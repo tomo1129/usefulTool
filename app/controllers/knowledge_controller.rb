@@ -1,6 +1,14 @@
 class KnowledgeController < ApplicationController
 	TEXT = '1'
 	CODE = '2'
+	JAVA = '3'
+	PHP = '4'
+	PYTHON = '5'
+	RUBY = '6'
+	HTML = '7'
+	CSS = '8'
+	JAVASCRIPT = '9'
+	LINUX = '10'
 
 	DRAFT = '0'
 	PUBLIC = '1'

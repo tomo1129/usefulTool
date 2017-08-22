@@ -18,6 +18,14 @@
 		<div class="section" data-id="<%= i %>">
 			<label><%= radio_button 'article[type]', i, KnowledgeController::TEXT, {:checked => (value['type'] == KnowledgeController::TEXT)} %>テキスト</label>
 			<label><%= radio_button 'article[type]', i, KnowledgeController::CODE, {:checked => (value['type'] == KnowledgeController::CODE)} %>コード</label>
+			<label><%= radio_button 'article[type]', i, KnowledgeController::JAVA, {:checked => (value['type'] == KnowledgeController::JAVA)} %>JAVA</label>
+			<label><%= radio_button 'article[type]', i, KnowledgeController::PHP, {:checked => (value['type'] == KnowledgeController::PHP)} %>PHP</label>
+			<label><%= radio_button 'article[type]', i, KnowledgeController::PYTHON, {:checked => (value['type'] == KnowledgeController::PYTHON)} %>PYTHON</label>
+			<label><%= radio_button 'article[type]', i, KnowledgeController::RUBY, {:checked => (value['type'] == KnowledgeController::RUBY)} %>RUBY</label>
+			<label><%= radio_button 'article[type]', i, KnowledgeController::HTML, {:checked => (value['type'] == KnowledgeController::HTML)} %>HTML</label>
+			<label><%= radio_button 'article[type]', i, KnowledgeController::CSS, {:checked => (value['type'] == KnowledgeController::CSS)} %>CSS</label>
+			<label><%= radio_button 'article[type]', i, KnowledgeController::JAVASCRIPT, {:checked => (value['type'] == KnowledgeController::JAVASCRIPT)} %>JAVASCRIPT</label>
+			<label><%= radio_button 'article[type]', i, KnowledgeController::LINUX, {:checked => (value['type'] == KnowledgeController::LINUX)} %>LINUX</label>
 			<%= text_area_tag "article[sentence][#{i}]", value['sentence'] %>
 		</div>
 	<% end %>
