@@ -36,6 +36,7 @@ html {
 				display: inline;
 				padding-bottom: 3px;
 				font-size: 1.2em;
+				line-height: 1.7em;
 				&:not(:first-child):before {
 					content: '\003E';
 					color: $black;
