@@ -1,0 +1,77 @@
+<%= render 'shared/header' %>
+<div class="main">
+	<article>
+		<section>
+			<h1>Spring Boot でCMSを作ってみた</h1>
+			<div class="sentence_section">
+				<pre>最近SpringBootに関するナレッジ
+<a href="http://ti-tomo-knowledge.net/knowledge?small_category=Spring%20Boot" target=“_blank”>http://ti-tomo-knowledge.net/knowledge?small_category=Spring%20Boot</a>
+をいくつか上げてきたのですが、散らかってきた印象があるので最初から順序を追ってSpringBootサービス作りの手順を記していこうと思います！
+何のサービス作りにしようか考えたのですが、ブログのようなCMS機能を実装すれば大方機能のことは理解できるのではないかと思うので、記事を編集する管理画面、ユーザが記事を閲覧できる画面について、実装手順を書いていこうと思います。
+
+・バージョン情報は以下になります。
+SpringBoot 1.4.3
+MySQL 5.7.18
+Redis 3.2.9
+
+※今回はSPA(Single Page Application)は使わずにThymeleafでテンプレート側は実装します。
+  また、極力Javascriptを使用しない実装にしようと思います。
+
+実装の目次としては以下になります。
+</pre>
+				<pre class="index">
+					<ol type="1">
+						<li><a href="#hello">Hello World!の出力</a></li>
+					</ol>
+				</pre>
+				<h4 id="hello" class="bold">1. Hello World!の出力</h4>
+				<pre>
+「Hello World!」の出力は新しくプロジェクトを作る上で一番基本的なことですね。
+<a href="http://ti-tomo-knowledge.net/knowledge/40" target="_blank">http://ti-tomo-knowledge.net/knowledge/40</a>
+にIntellijを使ったやり方ではありますが、「Hello World!」を出力するまでの流れを記していますので、参考にしてください。
+このリンク先のバージョンが今回のバージョンとは違いますが、流れは変わりありませんので、同じ流れで実行してください。
+Eclipseなど、他のIDEを使用している方はごめんなさい。でも、「Hello World!」を出力するまでの流れはネットで調べればいくらでも出てきます。
+そういう経緯でもここは細かい説明を省略させていただきます。
+				</pre>
+			</div>
+		</section>
+		<!--最新ニュース(About Latest News)とか-->
+		<!--特集とか-->
+		<!--便利ツールとか-->
+		<!--閲覧ランキング-->
+		<% if Rails.env == 'production' %>
+			<section>
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- adsense -->
+				<ins class="adsbygoogle"
+					 style="display:block"
+					 data-ad-client="ca-pub-7732606557161974"
+					 data-ad-slot="1848440441"
+					 data-ad-format="auto"></ins>
+				<script>
+					(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+			</section>
+		<% end %>
+	</article>
+	<script>
+		$(function(){
+			// #で始まるアンカーをクリックした場合に処理
+			$('a[href^="#"]').click(function() {
+				// スクロールの速度
+				var speed = 400; // ミリ秒
+				// アンカーの値取得
+				var href= $(this).attr("href");
+				// 移動先を取得
+				var target = $(href == "#" || href == "" ? 'html' : href);
+				// 移動先を数値で取得
+				var position = target.offset().top;
+				// スムーススクロール
+				$('body,html').animate({scrollTop:position}, speed, 'swing');
+				return false;
+			});
+		});
+	</script>
+	<%= render 'shared/sidebar' %>
+</div>
+<%= render 'shared/footer' %>

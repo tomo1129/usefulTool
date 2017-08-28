@@ -1,0 +1,12 @@
+// Place all the styles related to the springboot controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+pre.index {
+	ol {
+		list-style-type: decimal;
+		padding-left: 40px;
+		color: #0000ee;
+		background: #bfe5ec;
+		border: 3px solid #86c2c5;
+	}
+}
