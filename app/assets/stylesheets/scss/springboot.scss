@@ -3,11 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 pre.index {
 	ol {
+		&.outer {
+			border: 3px solid #86c2c5;
+		}
 		list-style-type: decimal;
 		padding-left: 40px;
 		color: #0000ee;
 		background: #bfe5ec;
-		border: 3px solid #86c2c5;
+		line-height: 10px;
 	}
 }
 
@@ -15,4 +18,12 @@ pre {
 	a {
 		word-wrap: break-word;
 	}
+}
+
+h3.outer-title {
+	color: #0000ee;
+	background: #bfe5ec;
+	border: 3px solid #86c2c5;
+	margin-bottom: 20px;
+	padding: 10px 0 10px 10px;
 }
