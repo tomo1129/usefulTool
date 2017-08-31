@@ -15,7 +15,15 @@
 
 	<div class="section" data-id="0">
 		<label><%= radio_button 'article[type]', 0, KnowledgeController::TEXT, {:checked => (@type.blank? || @type == KnowledgeController::TEXT)} %>テキスト</label>
-		<label><%= radio_button 'article[type]', 0, KnowledgeController::CODE, {:checked => (@type == KnowledgeController::CODE)} %>コード</label>
+		<label><%= radio_button 'article[type]', 0, KnowledgeController::CODE, {:checked => (@type.blank? || @type == KnowledgeController::CODE)} %>コード</label>
+		<label><%= radio_button 'article[type]', 0, KnowledgeController::JAVA, {:checked => (@type.blank? || @type == KnowledgeController::JAVA)} %>JAVA</label>
+		<label><%= radio_button 'article[type]', 0, KnowledgeController::PHP, {:checked => (@type.blank? || @type == KnowledgeController::PHP)} %>PHP</label>
+		<label><%= radio_button 'article[type]', 0, KnowledgeController::PYTHON, {:checked => (@type.blank? || @type == KnowledgeController::PYTHON)} %>PYTHON</label>
+		<label><%= radio_button 'article[type]', 0, KnowledgeController::RUBY, {:checked => (@type.blank? || @type == KnowledgeController::RUBY)} %>RUBY</label>
+		<label><%= radio_button 'article[type]', 0, KnowledgeController::HTML, {:checked => (@type.blank? || @type == KnowledgeController::HTML)} %>HTML</label>
+		<label><%= radio_button 'article[type]', 0, KnowledgeController::CSS, {:checked => (@type.blank? || @type == KnowledgeController::CSS)} %>CSS</label>
+		<label><%= radio_button 'article[type]', 0, KnowledgeController::JAVASCRIPT, {:checked => (@type.blank? || @type == KnowledgeController::JAVASCRIPT)} %>JAVASCRIPT</label>
+		<label><%= radio_button 'article[type]', 0, KnowledgeController::LINUX, {:checked => (@type.blank? || @type == KnowledgeController::LINUX)} %>LINUX</label>
 		<%= text_area 'article[sentence]', 0 %>
 	</div>
 	<a href="javascript:void(0)" class="jsAdd">追加</a>
@@ -54,6 +62,14 @@
 			var section = '<div class="section" data-id="' + next_id + '">' +
 				'<label><input type="radio" value="1" checked="checked" name="article[type][' + next_id + ']" id="article_type_' + next_id + '_1">テキスト</label>' +
 				'<label><input type="radio" value="2" name="article[type][' + next_id + ']" id="article_type_' + next_id + '_2">コード</label>' +
+				'<label><input type="radio" value="3" name="article[type][' + next_id + ']" id="article_type_' + next_id + '_3">JAVA</label>' +
+				'<label><input type="radio" value="4" name="article[type][' + next_id + ']" id="article_type_' + next_id + '_4">PHP</label>' +
+				'<label><input type="radio" value="5" name="article[type][' + next_id + ']" id="article_type_' + next_id + '_5">PYTHON</label>' +
+				'<label><input type="radio" value="6" name="article[type][' + next_id + ']" id="article_type_' + next_id + '_6">RUBY</label>' +
+				'<label><input type="radio" value="7" name="article[type][' + next_id + ']" id="article_type_' + next_id + '_7">HTML</label>' +
+				'<label><input type="radio" value="8" name="article[type][' + next_id + ']" id="article_type_' + next_id + '_8">CSS</label>' +
+				'<label><input type="radio" value="9" name="article[type][' + next_id + ']" id="article_type_' + next_id + '_9">JAVASCRIPT</label>' +
+				'<label><input type="radio" value="10" name="article[type][' + next_id + ']" id="article_type_' + next_id + '_10">LINUX</label>' +
 				'<textarea name="article[sentence][' + next_id + ']" id="article_sentence_' + next_id + '"></textarea>' +
 				'</div>';
 			$(section).insertBefore('.jsAdd');
