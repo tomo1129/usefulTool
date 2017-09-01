@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 	resources :ramdom
 	resources :knowledge
 	resources :springboot
+	resources :googlemaps
 	resources :admin do
 		collection do
 			get :images

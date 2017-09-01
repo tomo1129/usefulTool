@@ -1,0 +1,101 @@
+<div class="main">
+	<article>
+		<section>
+			<% if @map_id == '1' || @map_id == '2' || @map_id == '3' %>
+			<div id="map" class="map"></div>
+			<% end %>
+
+			<% if @map_id == '1' %>
+				<script type="text/javascript">
+					function initMap() {
+						var option = {
+							zoom: 15,
+							center: new google.maps.LatLng(35.658034,139.701636)
+						};
+						var map = new google.maps.Map(document.getElementById("map"), option);
+					}
+				</script>
+				<script async defer
+						src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzE_yDb4ocCebsZydiMd3EmkwZcQQOviA&callback=initMap">
+				</script>
+			<% elsif @map_id == '2' %>
+				<script type="text/javascript">
+					function initMap() {
+						var option = {
+							zoom: 15,
+							center: new google.maps.LatLng(35.658034,139.701636)
+						};
+						var map = new google.maps.Map(document.getElementById("map"), option);
+					}
+				</script>
+				<script async defer
+						src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzE_yDb4ocCebsZydiMd3EmkwZcQQOviA&callback=initMap&language=en">
+				</script>
+			<% elsif @map_id == '3' %>
+				<script type="text/javascript">
+					function initMap() {
+						var geocoder = new google.maps.Geocoder();
+						geocoder.geocode(
+							{
+								'address': '川口市',
+								'region': 'jp'
+							},
+							function (results, status) {
+								if (status == google.maps.GeocoderStatus.OK) {
+									google.maps.event.addDomListener(window, 'load', function () {
+										var option = {
+											zoom: 15,
+											center: new google.maps.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng())
+										};
+
+										var map = new google.maps.Map(document.getElementById('map'), option);
+
+										var marker = new google.maps.Marker({
+											position: option.center,
+											map: map
+										});
+									});
+								}
+							}
+						);
+					}
+				</script>
+				<script async defer
+						src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzE_yDb4ocCebsZydiMd3EmkwZcQQOviA&callback=initMap">
+				</script>
+			<% elsif @map_id == '4' %>
+				<iframe src="https://www.google.com/maps/embed/v1/place?q=マルティスープ&key=AIzaSyCyLsdnzG2olHUphI13UN2gv94hxG-NZ2A&zoom=15"
+					width="600" height="450" allowfullscreen="allowfullscreen"></iframe>
+			<% elsif @map_id == '5' %>
+				<iframe src="https://www.google.com/maps/embed/v1/search?q=イタリアン六本木&key=AIzaSyCyLsdnzG2olHUphI13UN2gv94hxG-NZ2A&zoom=15"
+					width="600" height="450" allowfullscreen="allowfullscreen"></iframe>
+			<% elsif @map_id == '6' %>
+				<iframe src="https://www.google.com/maps/embed/v1/search?q=イタリアン 六本木&key=AIzaSyCyLsdnzG2olHUphI13UN2gv94hxG-NZ2A&zoom=15&language=en"
+					width="600" height="450" allowfullscreen="allowfullscreen"></iframe>
+			<% end %>
+		</section>
+		<% if Rails.env == 'production' %>
+			<section>
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- adsense -->
+				<ins class="adsbygoogle"
+					 style="display:block"
+					 data-ad-client="ca-pub-7732606557161974"
+					 data-ad-slot="1848440441"
+					 data-ad-format="auto"></ins>
+				<script>
+					(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+			</section>
+		<% end %>
+	</article>
+</div>
+<style>
+	html {
+		background: none;
+	}
+	.map {
+		width: 80%;
+		height: 500px;
+	}
+</style>

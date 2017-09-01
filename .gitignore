@@ -44,3 +44,5 @@ bower.json
 .byebug_history
 usefultool.iml
 .idea
+
+config/database.yml
