@@ -27,6 +27,8 @@
 					<pre><code class="javascript"><%= parse['sentence'] %></code></pre>
 				<% elsif parse['type'] == KnowledgeController::LINUX %>
 					<pre><code class="bash"><%= parse['sentence'] %></code></pre>
+				<% elsif parse['type'] == KnowledgeController::SQL %>
+					<pre><code class="sql"><%= parse['sentence'] %></code></pre>
 				<% end %>
 				</div>
 			<% end %>

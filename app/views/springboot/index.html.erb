@@ -22,15 +22,17 @@ Redis 3.2.9
 </pre>
 				<pre class="index">
 					<ol class="outer" type="1">
-						<li><a href="#basic-setup">基本セットアップ</a>
+						<li><a href="#1-basic-setup">基本セットアップ</a>
 							<ol type="1">
-								<li><a href="#hello">Hello World!の出力</a></li>
-								<li><a href="#java-version">Javaのバージョンセット</a></li>
-								<li><a href="#develop-effective">開発効率を上げるための設定</a></li></ol></li>
+								<li><a href="#1-hello">Hello World!の出力</a></li>
+								<li><a href="#1-java-version">Javaのバージョンセット</a></li>
+								<li><a href="#1-develop-effective">開発効率を上げるための設定</a></li>
+								<li><a href="#1-set-database">データベースの設定</a></li>
+								<li><a href="#1-migration">マイグレーションの実行</a></li></ol></li>
 					</ol>
 				</pre>
-				<h3 id="basic-setup" class="bold outer-title">1. 基本セットアップ</h3>
-				<h4 id="hello" class="bold">1. Hello World!の出力</h4>
+				<h3 id="1-basic-setup" class="bold outer-title">1. 基本セットアップ</h3>
+				<h4 id="1-hello" class="bold">1. Hello World!の出力</h4>
 				<pre>
 「Hello World!」の出力は新しくプロジェクトを作る上で一番基本的なことですね。
 <a href="http://ti-tomo-knowledge.net/knowledge/40" target="_blank">http://ti-tomo-knowledge.net/knowledge/40</a>
@@ -39,13 +41,13 @@ Redis 3.2.9
 Eclipseなど、他のIDEを使用している方はごめんなさい。でも、「Hello World!」を出力するまでの流れはネットで調べればいくらでも出てきます。
 そういう経緯でもここは細かい説明を省略させていただきます。
 				</pre>
-				<h4 id="java-version" class="bold">2. Javaのバージョンセット</h4>
+				<h4 id="1-java-version" class="bold">2. Javaのバージョンセット</h4>
 				<pre>
 「Hello World!」で動作確認もできたところで次は開発前にやる色々な設定のうちの1つ、Javaのバージョン指定です。
 <a href="http://ti-tomo-knowledge.net/knowledge/79" target="_blank">http://ti-tomo-knowledge.net/knowledge/79</a>
 に細かく設定方法を記しましたので、設定してみてください。
 				</pre>
-				<h4 id="develop-effective" class="bold">3. 開発効率を上げるための設定</h4>
+				<h4 id="1-develop-effective" class="bold">3. 開発効率を上げるための設定</h4>
 				<pre>
 次は開発効率を上げるために、Spring Boot Devtoolsというものをインストールします。
 Spring Bootではソースを変更するたびにコンパイルが必要になりますが、
@@ -53,6 +55,27 @@ Spring Boot Devtoolsを導入すると勝手にコンパイルが始まるので
 多少は効率を上げることができます。コンパイル忘れも無くなりますね。
 <a href="http://ti-tomo-knowledge.net/knowledge/80" target="_blank">http://ti-tomo-knowledge.net/knowledge/80</a>
 にやり方を記しました。
+				</pre>
+				<h4 id="1-set-database" class="bold">4. データベースの設定</h4>
+				<pre>
+CMSを作るためには当然データベースに情報を保存していかなければいけません。
+今回はSpring Data JPAと呼ばれるSpring Bootからデータベースを扱うライブラリをインストールします。
+同じようにデータベースを扱う主要なライブラリとしてSpring JDBCなどもありますが、今回は割愛します。
+設定手順は以下に記しましたのでご確認ください。
+<a href="http://ti-tomo-knowledge.net/knowledge/46" target="_blank">http://ti-tomo-knowledge.net/knowledge/46</a>
+				</pre>
+				<h4 id="1-migration" class="bold">5. マイグレーションの実行</h4>
+				<pre>
+データベースのバージョン管理についてはFlywayを使ったマイグレーションで行います。
+以下にやり方を記しますが、
+<a href="http://ti-tomo-knowledge.net/knowledge/47" target="_blank">http://ti-tomo-knowledge.net/knowledge/47</a>
+今回はusersテーブル内に権限に関するカラムも入れておきたいため、
+以下のマイグレーションテーブルを追加してアプリケーションを実行させてみてください。
+
+V2__add-authority.sql<div class="sentence_section spring_code">
+					<pre><code class="sql">alter table users add is_admin tinyint(1) not null default '0' after password;</code></pre>
+				</div>
+
 				</pre>
 			</div>
 		</section>

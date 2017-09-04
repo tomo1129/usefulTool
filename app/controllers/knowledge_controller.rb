@@ -9,6 +9,7 @@ class KnowledgeController < ApplicationController
 	CSS = '8'
 	JAVASCRIPT = '9'
 	LINUX = '10'
+	SQL = '11'
 
 	DRAFT = '0'
 	PUBLIC = '1'
