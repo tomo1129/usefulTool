@@ -4,7 +4,7 @@
 @import "color";
 @import "mixins";
 html {
-	background: image-url('background.jpg');
+	background: $black;
 	font-family: Raleway, Verdana, Arial, sans-serif;
 	body {
 		width: 90%;
